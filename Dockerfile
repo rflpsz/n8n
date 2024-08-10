@@ -24,4 +24,4 @@ ENV NODE_FUNCTION_ALLOW_EXTERNAL=moment,lodash,@google-cloud/speech
 EXPOSE 5678
 
 # Comando para iniciar o n8n
-CMD ["n8n", "start"]
+CMD ["node", "/usr/local/bin/n8n"]
