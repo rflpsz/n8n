@@ -1,5 +1,8 @@
 # Use a imagem oficial do n8n como base
-FROM docker.n8n.io/n8nio/n8n
+FROM docker.n8n.io/n8nio/n8n:latest
+
+# Crie o diretório de trabalho para o n8n
+RUN mkdir -p /home/node/.n8n
 
 # Defina o diretório de trabalho dentro do contêiner
 WORKDIR /home/node/.n8n
@@ -24,4 +27,4 @@ ENV NODE_FUNCTION_ALLOW_EXTERNAL=moment,lodash,@google-cloud/speech
 EXPOSE 5678
 
 # Comando para iniciar o n8n
-CMD ["node", "/usr/local/bin/n8n"]
+CMD ["n8n"]
