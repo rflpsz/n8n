@@ -1,14 +1,11 @@
-# Use a imagem oficial do n8n como base
-FROM docker.n8n.io/n8nio/n8n:latest
+# Use uma imagem base do Node.js
+FROM node:18-alpine
 
-# Crie o diretório de trabalho para o n8n
-RUN mkdir -p /home/node/.n8n
-
-# Defina o diretório de trabalho dentro do contêiner
+# Crie um diretório de trabalho
 WORKDIR /home/node/.n8n
 
-# Copie o conteúdo do diretório atual para o contêiner (se necessário)
-COPY . .
+# Instale o n8n globalmente
+RUN npm install -g n8n
 
 # Defina as variáveis de ambiente necessárias
 ENV N8N_BASIC_AUTH_ACTIVE=true
